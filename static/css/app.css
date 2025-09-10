@@ -1,0 +1,5 @@
+/* Minimal custom tweaks for nicer forms */
+.form-card { max-width: 720px; margin: 0 auto; }
+.required::after { content: ' *'; color: #dc3545; }
+.help-text { font-size: .875rem; color: #6c757d; }
+.invalid-feedback { display: block; }

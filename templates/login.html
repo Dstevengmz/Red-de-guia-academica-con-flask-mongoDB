@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="form-card">
+  <h2 class="mb-3">Iniciar sesión</h2>
+  <form method="POST" action="/login/" class="needs-validation" novalidate>
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="correo" class="form-label required">Correo electrónico</label>
+          <input type="email" class="form-control" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+          <div class="invalid-feedback">Ingresa un correo válido.</div>
+        </div>
+        <div class="mb-2">
+          <label for="clave" class="form-label required">Contraseña</label>
+          <input type="password" class="form-control" id="clave" name="clave" placeholder="••••••••" required>
+          <div class="invalid-feedback">Ingresa tu contraseña.</div>
+        </div>
+        <div class="text-end">
+          <a href="/recuperar" class="small">¿Olvidaste tu contraseña?</a>
+        </div>
+      </div>
+      <div class="card-footer bg-white d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-card">
+    <h2 class="mb-3">Agregar Instructor</h2>
+    <p class="text-muted">Al registrarse, al correo le llega la contraseña para ingresar a la aplicación.</p>
+    <div id="alert-container" data-estado="{{ estado }}" data-mensaje="{{ mensaje }}" class="d-none"></div>
+    <form id="formInstructor" method="POST" class="needs-validation" novalidate>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="nombrecompleto" class="form-label required">Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombrecompleto" name="nombrecompleto" required minlength="3">
+                    <div class="invalid-feedback">Ingresa el nombre completo.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="correoelectronico" class="form-label required">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="correoelectronico" name="correoelectronico" required>
+                    <div class="invalid-feedback">Ingresa un correo válido.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="sena" class="form-label required">Centro SENA</label>
+                    <select class="form-select" id="sena" name="sena" required>
+                        <option value="">-- Selecciona un centro --</option>
+                        {% for s in senas %}
+                            <option value="{{ s.id }}">{{ s.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">Selecciona un centro.</div>
+                </div>
+            </div>
+            <div class="card-footer bg-white d-flex justify-content-end">
+                <button type="submit" class="btn btn-success">Guardar Instructor</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

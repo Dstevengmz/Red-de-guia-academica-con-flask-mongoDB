@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="form-card">
+  <h2 class="mb-3">Registrar Nueva Guía</h2>
+  <p id="alert-container" data-estado="{{ estado }}" data-mensaje="{{ mensaje }}" class="d-none"></p>
+  <form method="POST" enctype="multipart/form-data" id="formGuia" class="needs-validation" novalidate>
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="nombreguia" class="form-label required">Nombre de la Guía</label>
+          <input type="text" class="form-control" name="nombreguia" id="nombreguia" required minlength="3" />
+          <div class="invalid-feedback">Ingresa un nombre válido (mínimo 3 caracteres).</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcions" class="form-label required">Descripción</label>
+          <textarea class="form-control" name="descripcions" id="descripcions" rows="3" required></textarea>
+          <div class="invalid-feedback">La descripción es obligatoria.</div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="programaformacion" class="form-label required">Programa de Formación</label>
+            <select class="form-select" name="programaformacion" id="programaformacion" required>
+              <option value="">-- Selecciona un programa --</option>
+              {% for prog in programa %}
+              <option value="{{ prog.id }}">{{ prog.nombre }}</option>
+              {% endfor %}
+            </select>
+            <div class="invalid-feedback">Selecciona un programa.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="intructordeproceso" class="form-label required">Instructor a Cargo</label>
+            <select class="form-select" name="intructordeproceso" id="intructordeproceso" required>
+              <option value="">--Selecciona--</option>
+              {% for instructor in instructores %}
+              <option value="{{ instructor.id }}">{{ instructor.nombrecompleto }}</option>
+              {% endfor %}
+            </select>
+            <div class="invalid-feedback">Selecciona un instructor.</div>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <label for="documento" class="form-label required">Documento (PDF)</label>
+            <input type="file" class="form-control" name="documento" id="documento" accept="application/pdf" required />
+            <div class="help-text">Solo archivos PDF. Máx 16MB.</div>
+            <div class="invalid-feedback">Sube un archivo PDF válido.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="fecha" class="form-label required">Fecha</label>
+            <input type="date" class="form-control" name="fecha" id="fecha" required />
+            <div class="invalid-feedback">Selecciona una fecha.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer bg-white d-flex justify-content-end gap-2">
+        <a href="{{ url_for('listar_guias') }}" class="btn btn-outline-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-success">Guardar Guía</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
