@@ -1,11 +1,5 @@
 # 📚 Aplicación Web de Compartición de Guías de Aprendizaje para Instructores SENA
 
-**GFPI-F-135 V04**  
-**PROCESO DE GESTIÓN DE FORMACIÓN PROFESIONAL INTEGRAL**  
-**FORMATO MATERIAL DE APOYO – ACTIVIDADES**
-
----
-
 ## 🧠 Enunciado
 
 La red de instructores del SENA quiere contar con una **aplicación web** que les permita compartir **guías de aprendizaje** para los diferentes programas de formación. La aplicación permitirá a los instructores registrarse, iniciar sesión, subir guías y consultar las guías existentes.
